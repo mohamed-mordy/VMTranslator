@@ -2,7 +2,7 @@ void mystrcat(char *s, const char *t)
 {
 	while (*s)
 		s++;
-	while (*s++ = *t++)
+	while ((*s++ = *t++))
 		;
 }
 
@@ -17,7 +17,7 @@ void mystrncat(char *s, const char *t, int n)
 
 void mystrcpy(char *dst, const char *src)
 {
-	while (*dst++ = *src++)
+	while ((*dst++ = *src++))
 		;
 }
 
@@ -134,3 +134,28 @@ void mysubstring(char *dst, const char *src, int from, int to)
 		dst[i++] = src[j++];
 	dst[i] = '\0';
 }
+
+void mysplit(const char *str, char *s1, char *s2, char dlm)
+{
+	while (*str && *str != dlm)
+		*s1++ = *str++;
+	*s1 = '\0';
+	if (!*str) {
+		*s2 = '\0';
+		return;
+	}
+	str++;
+	while ((*s2++ = *str++))
+		;
+}
+
+void mystrcat_dlm(char *s1, char *s2, char dlm)
+{
+	while (*s1)
+		s1++;
+	if (dlm)
+		*s1++ = dlm;
+	while ((*s1++ = *s2++))
+		;
+}
+

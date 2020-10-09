@@ -15,5 +15,7 @@ int strindex(const char *s, const char *t);
 int strrindex(const char *s, const char *t); 
 void reverse(char *s);
 void mysubstring(char *dst, const char *src, int from, int to);
+void mysplit(const char *str, char *s1, char *s2, char dlm);
+void mystrcat_dlm(char *s1, char *s2, char dlm);
 
 #endif
